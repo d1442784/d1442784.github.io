@@ -1,1 +1,43 @@
-
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神秘塔羅 - 今日運勢占卜</title>
+<style>
+  body { background-color: #1e1e2f; color: #fff; font-family: sans-serif; text-align: center; padding: 50px 20px; margin: 0; }
+  .card { background: #2a2a40; padding: 30px; border-radius: 15px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); max-width: 400px; margin: 0 auto; }
+  h1 { color: #f39c12; margin-top: 0; }
+  button { background: #f39c12; color: #fff; border: none; padding: 15px 30px; font-size: 18px; border-radius: 8px; cursor: pointer; margin-top: 20px; font-weight: bold; width: 100%; }
+  button:active { transform: scale(0.95); background: #e67e22; }
+  #result { margin-top: 30px; font-size: 20px; line-height: 1.5; min-height: 80px; color: #00d2d3; font-weight: bold; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>✨ 每日運勢占卜 ✨</h1>
+    <p>在心中默念你的問題，然後點擊下方按鈕</p>
+    <button onclick="drawCard()">🔮 抽取命運卡牌</button>
+    <div id="result"></div>
+  </div>
+  <script>
+    const fortunes = [
+      "大吉🌟：今天運勢爆棚！逢甲周邊找車位一找就有，出門還可能撿到錢！",
+      "中吉☀️：平平穩穩的一天，適合去圖書館安靜寫這週的程式作業。",
+      "小吉🍀：會有意想不到的小確幸發生，下課去買杯手搖飲犒賞自己吧！",
+      "平局☁️：無風無雨，保持平常心，穩紮穩打即可。",
+      "注意🌧️：今天可能會有點小迷糊，出門記得檢查鑰匙、看路不要只顧著滑手機！"
+    ];
+    function drawCard() {
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = "⏳ 命運轉動中...";
+      resultDiv.style.color = "#95a5a6";
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * fortunes.length);
+        resultDiv.innerHTML = fortunes[randomIndex];
+        resultDiv.style.color = "#00d2d3";
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
